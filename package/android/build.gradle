@@ -117,7 +117,8 @@ android {
 
     externalNativeBuild {
       cmake {
-        cppFlags "-O2 -frtti -fexceptions -Wall -Wno-unused-variable -fstack-protector-all"
+        // cppFlags "-O2 -frtti -fexceptions -Wall -Wno-unused-variable -fstack-protector-all"
+        cppFlags "-O0 -Wall -Wno-unused-variable"  // 监测到 栈缓冲区溢出 必须关闭优化，设置成 -O0, https://blog.csdn.net/m0_37708614/article/details/124104312
         arguments "-DANDROID_STL=c++_shared",
                 "-DNODE_MODULES_DIR=${nodeModules}",
                 "-DENABLE_FRAME_PROCESSORS=${hasWorklets ? "ON" : "OFF"}"

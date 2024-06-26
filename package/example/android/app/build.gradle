@@ -154,6 +154,9 @@ android {
     }
     packagingOptions {
         pickFirst '**/*.so'
+        jniLibs {
+            useLegacyPackaging true
+        }
     }
 }
 

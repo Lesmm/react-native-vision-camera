@@ -69,6 +69,9 @@ target_link_libraries(
         EGL                                 # <-- OpenGL (EGL) (for VideoPipeline)
 )
 
+target_compile_options(VisionCamera PUBLIC -fsanitize=leak,address -fno-omit-frame-pointer)
+set_target_properties(VisionCamera PROPERTIES LINK_FLAGS -fsanitize=leak,address)
+
 # Optionally also add Frame Processors here
 message("VisionCamera: Frame Processors: ${ENABLE_FRAME_PROCESSORS}!")
 if (ENABLE_FRAME_PROCESSORS)
