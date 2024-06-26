@@ -69,6 +69,9 @@ target_link_libraries(
         EGL                                 # <-- OpenGL (EGL) (for VideoPipeline)
 )
 
+target_compile_options(VisionCamera PUBLIC -fsanitize=hwaddress -fno-omit-frame-pointer)
+target_link_options(VisionCamera PUBLIC -fsanitize=hwaddress)
+
 # Optionally also add Frame Processors here
 message("VisionCamera: Frame Processors: ${ENABLE_FRAME_PROCESSORS}!")
 if (ENABLE_FRAME_PROCESSORS)
