@@ -1,6 +1,7 @@
 package com.mrousavy.camera.example;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -68,5 +69,10 @@ public class MainApplication extends Application implements ReactApplication {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
       DefaultNewArchitectureEntryPoint.load();
     }
+
+    Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+      // Handle uncaught exceptions here
+        Log.e("MainApplication", "Uncaught Exception", throwable);
+    });
   }
 }

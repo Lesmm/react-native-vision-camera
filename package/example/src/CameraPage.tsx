@@ -258,6 +258,9 @@ export function CameraPage({ navigation }: Props): React.ReactElement {
         <PressableOpacity style={styles.button} onPress={() => navigation.navigate('CodeScannerPage')}>
           <IonIcon name="qr-code-outline" color="white" size={24} />
         </PressableOpacity>
+        <PressableOpacity style={styles.button} onPress={() => navigation.pop()}>
+          <IonIcon name="close-outline" color="white" size={24} />
+        </PressableOpacity>
       </View>
     </View>
   )

@@ -117,7 +117,7 @@ android {
 
     externalNativeBuild {
       cmake {
-        cppFlags "-O2 -frtti -fexceptions -Wall -Wno-unused-variable -fstack-protector-all"
+        cppFlags "-O2 -g -frtti -fexceptions -Wall -Wno-unused-variable -fstack-protector-all"
         arguments "-DANDROID_STL=c++_shared",
                 "-DNODE_MODULES_DIR=${nodeModules}",
                 "-DENABLE_FRAME_PROCESSORS=${hasWorklets ? "ON" : "OFF"}"

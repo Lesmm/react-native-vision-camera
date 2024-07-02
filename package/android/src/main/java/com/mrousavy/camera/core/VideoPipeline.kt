@@ -139,6 +139,7 @@ class VideoPipeline(
       surfaceTexture.setOnFrameAvailableListener(null, null)
       surfaceTexture.release()
       surface.release()
+      mHybridData.resetNative()
     }
   }
 

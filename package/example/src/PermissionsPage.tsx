@@ -2,7 +2,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 import React, { useCallback, useEffect, useState } from 'react'
 import { ImageRequireSource, Linking } from 'react-native'
 
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Button, Image } from 'react-native'
 import { Camera, CameraPermissionStatus } from 'react-native-vision-camera'
 import { CONTENT_SPACING, SAFE_AREA_PADDING } from './Constants'
 import type { Routes } from './Routes'
@@ -33,8 +33,12 @@ export function PermissionsPage({ navigation }: Props): React.ReactElement {
     setCameraPermissionStatus(permission)
   }, [])
 
+  const jumpToCameraPage = useCallback(async () => {
+    navigation.push('CameraPage')
+  }, [])
+
   useEffect(() => {
-    if (cameraPermissionStatus === 'granted' && microphonePermissionStatus === 'granted') navigation.replace('CameraPage')
+    // if (cameraPermissionStatus === 'granted' && microphonePermissionStatus === 'granted') navigation.replace('CameraPage')
   }, [cameraPermissionStatus, microphonePermissionStatus, navigation])
 
   return (
@@ -58,6 +62,10 @@ export function PermissionsPage({ navigation }: Props): React.ReactElement {
             </Text>
           </Text>
         )}
+
+        <View style={{ height: 20 }} />
+        <Button title='Jump to the camera page' onPress={jumpToCameraPage} />
+
       </View>
     </View>
   )
